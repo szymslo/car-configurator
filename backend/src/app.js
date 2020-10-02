@@ -1,5 +1,5 @@
 const express = require("express");
-const { ApolloServer, gql } = require("apollo-server-express");
+const {ApolloServer} = require("apollo-server-express");
 const mongoose = require("mongoose");
 const typeDefs = require("./typeDefs");
 const resolvers = require("./resolvers");
@@ -17,13 +17,18 @@ const startServer = async () => {
 
   server.applyMiddleware({ app });
 
-  await mongoose.connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-
+  try {
+    await mongoose.connect(MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  } 
+  catch (err) {
+    console.log("MongoDB connection failed!");
+  }
+  
   app.listen({ port: 4000 }, () =>
-    console.log(`🚀 MongoDB connected. Server ready at http://localhost:4000${server.graphqlPath}`)
+    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
   );
 };
 
