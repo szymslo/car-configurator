@@ -10,13 +10,15 @@ const typeDefs = gql`
         id: ID!
         name: String!
         power: Int!
+        price: Int!
     }
 
     type Engine {
         id: ID!
         name: String!
         horsepower: Int!
-        capacity: Int!
+        capacity: Float!
+        price: Int!
     }
 `;
 
