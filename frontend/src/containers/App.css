@@ -7,23 +7,41 @@
     align-items: center;
     margin: 0 auto;
     overflow: auto;
-    border: 1px solid red;
+}
+
+.box {
+    display: flex;
+    width: 100%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    min-width: 400px;
 }
 
 .configurator {
-    border: 1px solid black;
     width:50%;
     height:70vh;
     justify-content: center;
     align-items: center;
     text-align: center;
+    min-width: 200px;
 }
 
 .view {
-    border: 1px solid black;
     width:50%;
     height:70vh;
     justify-content: center;
     align-items: center;
     text-align: center;
+    min-width: 200px;
+}
+
+.dropdown {
+    margin: 1rem;
+    align-items: center; 
+    justify-content: center;
+}
+
+#gearbox {
+    margin-top: .2rem;
+    margin-bottom: .6rem;
 }

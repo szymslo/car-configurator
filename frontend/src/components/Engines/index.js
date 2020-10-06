@@ -2,34 +2,35 @@ import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import './index.css'
 
-const CARS = gql`
+const ENGINES = gql`
   query GetCars {
-    cars {
+    engines {
       id
       name
-      power
+      horsepower
+      capacity
       price
     }
   }
 `;
 
-const onCarSelected = () => {
+const onEngineSelected = () => {
   console.log("car selected");
 };
 
 const Cars = () => {
-  const { loading, error, data } = useQuery(CARS);
+  const { loading, error, data } = useQuery(ENGINES);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading data!</p>;
 
   return (
     <div className="dropdown">
-      <label htmlFor="cars">Choose a car type </label>
-      <select name="cars" onChange={onCarSelected}>
-        {data.cars.map((car) => (
-          <option key={car.id} value={car.name}>
-            {car.name}
+      <label htmlFor="engines">Choose engine </label>
+      <select name="engines" onChange={onEngineSelected}>
+        {data.engines.map((engine) => (
+          <option key={engine.id} value={engine.name}>
+            {engine.name} {engine.horsepower} kW {engine.capacity} l
           </option>
         ))}
       </select>
