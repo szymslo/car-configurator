@@ -1,15 +1,20 @@
 import React from "react"
-import './index.css'
+import './index.scss'
 
 const Colors = () => {
+
+    const onColorSelected = (e) => {
+        console.log("Color selected: " + e.target.value);
+    };
+
     return (
         <>
         <label>Choose color</label>
         <div className="palette">
-              <button className="black"></button>
-              <button className="red"></button>
-              <button className="green"></button>
-              <button className="blue"></button>
+              <button className="yellow" onClick={onColorSelected} value="yellow"></button>
+              <button className="red" onClick={onColorSelected} value="red"></button>
+              <button className="green" onClick={onColorSelected} value="green"></button>
+              <button className="blue" onClick={onColorSelected} value="blue"></button>
         </div>
         </>
     )

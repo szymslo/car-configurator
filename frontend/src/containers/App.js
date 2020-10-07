@@ -1,6 +1,6 @@
 import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import "./App.css";
+import "./App.scss";
 import Cars from "../components/Cars";
 import Engines from "../components/Engines";
 import Gearboxes from "../components/Gearboxes";

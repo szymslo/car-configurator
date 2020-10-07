@@ -14,15 +14,15 @@ const ENGINES = gql`
   }
 `;
 
-const onEngineSelected = () => {
-  console.log("car selected");
-};
-
 const Cars = () => {
   const { loading, error, data } = useQuery(ENGINES);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading data!</p>;
+
+  const onEngineSelected = (e) => {
+    console.log("Engine selected: " + e.target.value);
+  };
 
   return (
     <div className="dropdown">

@@ -1,0 +1,27 @@
+%color-shared {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
+    margin: .4rem .2rem .1rem .1rem;
+    border-radius: 4px;
+}
+
+.yellow {
+    @extend %color-shared;
+    background-color:gold;
+}
+
+.red {
+    @extend %color-shared;
+    background-color: red;
+}
+
+.green {
+    @extend %color-shared;
+    background-color: limegreen;
+}
+
+.blue {
+    @extend %color-shared;
+    background-color: dodgerblue;
+}

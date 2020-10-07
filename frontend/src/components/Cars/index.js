@@ -13,15 +13,15 @@ const CARS = gql`
   }
 `;
 
-const onCarSelected = () => {
-  console.log("car selected");
-};
-
 const Cars = () => {
   const { loading, error, data } = useQuery(CARS);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading data!</p>;
+
+  const onCarSelected = (e) => {
+    console.log("car selected: " + e.target.value);
+  };
 
   return (
     <div className="dropdown">
