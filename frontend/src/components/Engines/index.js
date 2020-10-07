@@ -14,22 +14,18 @@ const ENGINES = gql`
   }
 `;
 
-const Cars = () => {
+const Engines = (props) => {
   const { loading, error, data } = useQuery(ENGINES);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading data!</p>;
 
-  const onEngineSelected = (e) => {
-    console.log("Engine selected: " + e.target.value);
-  };
-
   return (
     <div className="dropdown">
       <label htmlFor="engines">Choose engine </label>
-      <select name="engines" onChange={onEngineSelected}>
+      <select name="engines" onChange={props.onEngineSelected}>
         {data.engines.map((engine) => (
-          <option key={engine.id} value={engine.name}>
+          <option key={engine.id} value={engine.id}>
             {engine.name} {engine.horsepower} kW {engine.capacity} l
           </option>
         ))}
@@ -38,4 +34,4 @@ const Cars = () => {
   );
 };
 
-export default Cars;
+export default Engines;

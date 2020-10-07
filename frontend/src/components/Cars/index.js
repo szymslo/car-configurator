@@ -13,22 +13,18 @@ const CARS = gql`
   }
 `;
 
-const Cars = () => {
+const Cars = (props) => {
   const { loading, error, data } = useQuery(CARS);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading data!</p>;
 
-  const onCarSelected = (e) => {
-    console.log("car selected: " + e.target.value);
-  };
-
   return (
     <div className="dropdown">
       <label htmlFor="cars">Choose a car type </label>
-      <select name="cars" onChange={onCarSelected}>
+      <select name="cars" onChange={props.onCarSelected}>
         {data.cars.map((car) => (
-          <option key={car.id} value={car.name}>
+          <option key={car.id} value={car.id}>
             {car.name}
           </option>
         ))}
