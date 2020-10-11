@@ -1,30 +1,29 @@
-import React from 'react';
-import { useQuery, gql } from "@apollo/client";
-
-const CAR = gql`
-  query GetCar($id: String!) {
-    car(id: $id) {
-      name
-      power
-      price
-    }
-  }
-`;
+import React from "react";
+import { useApolloClient, gql } from "@apollo/client";
 
 const View = (props) => {
 
-    const id = props.id;
+  const client = useApolloClient();
 
-    const { loading, error, data } = useQuery(CAR, {variables: {id}});
-  
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error loading data!</p>
+  const car = client.readFragment({
+    id: `Car:${props.id}`,
+    fragment: gql`
+      fragment car on Car {
+        name
+        power
+        price
+      }
+    `,
+    fragmentName: "car",
+    });
 
     return (
-        <div>
-            <h2>{data.car.price}</h2>
-        </div>
+      <div>
+        <p>{car.name}</p>
+        <p>{car.price}</p>
+      </div>
     )
-  }
 
-  export default View;
+}
+
+export default View;

@@ -21,8 +21,9 @@ const Cars = (props) => {
 
   return (
     <div className="dropdown">
-      <label htmlFor="cars">Choose a car type </label>
+      <label htmlFor="cars">Car model</label>
       <select name="cars" onChange={props.onCarSelected}>
+        <option disabled selected hidden>Choose a car model</option>
         {data.cars.map((car) => (
           <option key={car.id} value={car.id}>
             {car.name}

@@ -22,8 +22,9 @@ const Engines = (props) => {
 
   return (
     <div className="dropdown">
-      <label htmlFor="engines">Choose engine </label>
+      <label htmlFor="engines">Engine</label>
       <select name="engines" onChange={props.onEngineSelected}>
+        <option disabled selected hidden>Choose engine</option>
         {data.engines.map((engine) => (
           <option key={engine.id} value={engine.id}>
             {engine.name} {engine.horsepower} kW {engine.capacity} l

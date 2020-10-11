@@ -5,7 +5,7 @@ const Gearboxes = (props) => {
 
     return (
         <>
-        <label>Choose gearbox</label>
+        <label>Gearbox</label>
         <div id="gearbox">
             <input id="man" type="radio" name="gearbox" value="Manual" onClick={props.onGearboxSelected} defaultChecked/>
             <label htmlFor="man">Manual</label>

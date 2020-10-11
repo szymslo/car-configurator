@@ -1,5 +1,5 @@
-import React from "react";
-import { ApolloClient, InMemoryCache, ApolloProvider} from "@apollo/client";
+import React, { useState } from "react";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import "./App.scss";
 import Cars from "../components/Cars";
 import Engines from "../components/Engines";
@@ -11,10 +11,6 @@ const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
   cache: new InMemoryCache(),
 });
-
-const selectCar = (e) => {
-  console.log("Car selected: (ID) " + e.target.value);
-};
 
 const selectEngine = (e) => {
   console.log("Engine selected: (ID) " + e.target.value);
@@ -29,7 +25,14 @@ const selectColor = (e) => {
 };
 
 const App = () => {
-  const id = "5f7c9170ed121a147c12422c";
+  const [cid, setCid] = useState("5f75edf2df109d8c71dc2036");
+  const [isClicked, setClicked] = useState(false);
+
+  const selectCar = (e) => {
+    console.log("Car selected: (ID) " + e.target.value);
+    setCid(e.target.value);
+    setClicked(true);
+  };
 
   return (
     <ApolloProvider client={client}>
@@ -42,7 +45,10 @@ const App = () => {
             <Colors onColorSelected={selectColor}/>
           </div>
           <div className="view">
-            <View id={id}/>
+            <h4>Summary</h4>
+            {isClicked && 
+            <View id={cid}/> 
+            }
           </div>
         </div>
       </div>

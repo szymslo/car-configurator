@@ -4,7 +4,7 @@ import "./index.scss";
 const Colors = (props) => {
   return (
     <>
-      <label>Choose color</label>
+      <label>Color</label>
       <div className="palette">
         <button
           className="yellow"
