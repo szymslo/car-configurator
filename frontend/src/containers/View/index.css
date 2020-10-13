@@ -1,0 +1,10 @@
+.info {
+    font-size: .8rem;
+}
+
+.text {
+    background: rgba(105, 105, 105, 0.2);
+    border-radius: 3px;
+    font-weight: 550;
+}
+

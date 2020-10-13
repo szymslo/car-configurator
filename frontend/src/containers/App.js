@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import "./App.scss";
-import Cars from "../components/Cars";
-import Engines from "../components/Engines";
-import Gearboxes from "../components/Gearboxes";
-import Colors from "../components/Colors"
-import View from "../components/View"
-import Context from '../store/context'
+import './App.scss';
+import Cars from '../components/Cars';
+import Engines from '../components/Engines';
+import Gearboxes from '../components/Gearboxes';
+import Colors from '../components/Colors';
+import View from './View/index';
+import Context from '../store/context';
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
@@ -28,7 +28,7 @@ const App = () => {
             <Colors/>
           </div>
           <div className="view">
-            {carState.isModelSelected && carState.isEngineSelected && 
+            {carState.isModelSelected &&
               <View/>
             }
           </div>

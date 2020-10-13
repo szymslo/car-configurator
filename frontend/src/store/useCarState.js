@@ -1,18 +1,23 @@
-import {useReducer} from 'react'
+import {useReducer} from "react";
 
 const reducer = (state, action) => {
     switch(action.type) {
         case "SET_MODEL":
-            return { 
-                ...state, 
-                carId: action.payload, 
-                isModelSelected: true               
+            return {
+                carId: action.payload,
+                engineId: '', 
+                gearbox: '',
+                color: 'white',
+                isModelSelected: true,
+                isEngineSelected: false,
+                isGearboxSelected: false     
             };
         case "SET_ENGINE":
             return {
                 ...state, 
                 engineId: action.payload,
-                isEngineSelected: true
+                gearbox: '',
+                isEngineSelected: true,
             };
         case "SET_GEARBOX":
             return {
@@ -24,7 +29,6 @@ const reducer = (state, action) => {
             return {
                 ...state, 
                 color: action.payload,
-                isColorSelected: true
             };      
         default:
             return state;
@@ -35,9 +39,11 @@ const useCarState = () => {
     const [carState, carDispatch] = useReducer(reducer, {
         carId: '',
         engineId: '',
-        gearbox: 'Manual',
-        color: 'white',
-        isSelected: false
+        gearbox: '',
+        color: '',
+        isModelSelected: false,
+        isEngineSelected: false,
+        isGearboxSelected: false,
     })
 
     return {carState, carDispatch}
