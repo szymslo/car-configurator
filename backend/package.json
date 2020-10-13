@@ -11,11 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server-express": "^2.18.1",
+    "apollo-server-express": "^2.18.2",
     "express": "^4.17.1",
-    "mongoose": "^5.10.7"
+    "mongoose": "^5.10.9"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.5"
   }
 }
