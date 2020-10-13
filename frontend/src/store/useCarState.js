@@ -16,7 +16,6 @@ const reducer = (state, action) => {
             return {
                 ...state, 
                 engineId: action.payload,
-                gearbox: '',
                 isEngineSelected: true,
             };
         case "SET_GEARBOX":
