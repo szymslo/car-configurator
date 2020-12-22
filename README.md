@@ -1,4 +1,10 @@
-# To run this app
+### Application allows you to configure your car by picking its individual parts from the database
+
+<br>
+
+![car](https://user-images.githubusercontent.com/52113159/97114424-bd5ec980-16f0-11eb-8722-2df13079695c.gif)
+
+## To run this app
 
 ### git clone https://github.com/szymslo/car-configurator
 ### cd car-configurator
