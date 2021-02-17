@@ -1,4 +1,5 @@
-### Application allows you to configure your car by picking its individual parts from the database
+### This application allows you to arrange your car by picking its individual parts from the database
+#### Database is hosted on MongoDB Atlas, so there is no need for any configurations
 
 <br>
 
@@ -10,14 +11,12 @@
 ### cd car-configurator
 
 ## 1. Run Server
-### cd backend
-#### rm package-lock.json
+### cd server
 #### npm install
 #### npm start / yarn start
 
 ## 2. Run Client
-### cd frontend
-#### rm package-lock.json
+### cd client
 #### npm install
 #### npm start / yarn start
 
